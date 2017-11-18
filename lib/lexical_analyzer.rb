@@ -5,6 +5,7 @@ require_relative "tokens/substraction_operator_token"
 require_relative "tokens/multiplication_operator_token"
 require_relative "tokens/division_operator_token"
 require_relative "tokens/mod_operator_token"
+require_relative "tokens/pow_operator_token"
 require_relative "tokens/ignore_token"
 
 class LexicalAnalyzer
@@ -12,6 +13,7 @@ class LexicalAnalyzer
     OperandToken,
     AdditionOperatorToken,
     SubstractionOperatorToken,
+    PowOperatorToken,
     MultiplicationOperatorToken,
     DivisionOperatorToken,
     ModOperatorToken,

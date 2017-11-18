@@ -84,5 +84,12 @@ RSpec.describe RpnCalculator do
 
       expect(subject.accumulated).to eq 1
     end
+
+    it "do pow" do
+      subject.add('3 2 **')
+      subject.execute
+
+      expect(subject.accumulated).to eq 9
+    end
   end
 end
