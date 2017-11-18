@@ -52,7 +52,7 @@ class Cli
     puts "- clear -> clean the stack and reset the accumulated value"
     puts "- stack -> shows the current stack for the expressions"
     puts "- any number -> adds a number to the expression"
-    puts "- operator (+ - * /) -> adds an operator and executes the current stack"
+    puts "- operator (+ - * / %) -> adds an operator and executes the current stack"
     puts "- any number + operator -> adds a number to the expression and executes the current stack"
     puts "- exit -> terminates the program"
   end
