@@ -70,5 +70,3 @@ class Cli
     puts rpn.stack.inspect
   end
 end
-
-Cli.new
