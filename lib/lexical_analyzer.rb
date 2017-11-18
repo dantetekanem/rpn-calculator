@@ -8,14 +8,14 @@ require_relative "tokens/mod_operator_token"
 require_relative "tokens/ignore_token"
 
 class LexicalAnalyzer
-  DEFINITIONS = [
-    [/^[-]?[0-9]*\.?[0-9]+/, OperandToken],
-    [/^\+/, AdditionOperatorToken],
-    [/^\-/, SubstractionOperatorToken],
-    [/^\*/, MultiplicationOperatorToken],
-    [/^\//, DivisionOperatorToken],
-    [/^\%/, ModOperatorToken],
-    [/\s+/, IgnoreToken]
+  TOKENS = [
+    OperandToken,
+    AdditionOperatorToken,
+    SubstractionOperatorToken,
+    MultiplicationOperatorToken,
+    DivisionOperatorToken,
+    ModOperatorToken,
+    IgnoreToken
   ].freeze
 
   def self.tokenize(expression)
@@ -24,8 +24,8 @@ class LexicalAnalyzer
 
     while expression.size != last_size
       last_size = expression.size
-      DEFINITIONS.each do |regex, token_type|
-        lexical = expression.slice!(regex)
+      TOKENS.each do |token_type|
+        lexical = expression.slice!(token_type.expression)
         if lexical
           tokens << token_type.new(lexical) unless token_type == IgnoreToken
           break
