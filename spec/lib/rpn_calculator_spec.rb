@@ -42,4 +42,36 @@ RSpec.describe RpnCalculator do
 
     expect(subject.accumulated).to eq 5
   end
+
+  describe "Test operators" do
+    before { subject.clear }
+
+    it "do addition" do
+      subject.add('1 1 +')
+      subject.execute
+
+      expect(subject.accumulated).to eq 2
+    end
+
+    it "do subsctraction" do
+      subject.add('1 1 -')
+      subject.execute
+
+      expect(subject.accumulated).to eq 0
+    end
+
+    it "do multiplication" do
+      subject.add('2 2 *')
+      subject.execute
+
+      expect(subject.accumulated).to eq 4
+    end
+
+    it "do division" do
+      subject.add('6 2 /')
+      subject.execute
+
+      expect(subject.accumulated).to eq 3
+    end
+  end
 end
