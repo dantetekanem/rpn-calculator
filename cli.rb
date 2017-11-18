@@ -14,10 +14,16 @@ class Cli
   def play_loop
     loop do
       print "> "
-      command = gets.chomp
+      begin
+        command = gets.chomp
+      rescue Interrupt, SystemExit
+        byebye_message
+        break
+      end
 
       case command
       when "exit" then break
+      when "q" then break
       when "help" then help_message
       when "total" then total_message
       when "clear" then clear_message
@@ -43,7 +49,7 @@ class Cli
 
   def welcome_message
     puts "RPN (Reverse Polish Notation) by Leonardo Pereira (contato@leonardopereira.com) - version 1.0"
-    puts "--- Run 'help' for more information."
+    puts "--- Run 'help' for more information. Ctrl + C to terminate."
     puts "\n"
   end
 
@@ -54,7 +60,7 @@ class Cli
     puts "- any number -> adds a number to the expression"
     puts "- operator (+ - * / %) -> adds an operator and executes the current stack"
     puts "- any number + operator -> adds a number to the expression and executes the current stack"
-    puts "- exit -> terminates the program"
+    puts "- exit or q -> terminates the program"
   end
 
   def total_message
