@@ -1,4 +1,4 @@
-require_relative "lib/rpn_calculator"
+require_relative "rpn_calculator"
 
 class Cli
   attr_reader :rpn
