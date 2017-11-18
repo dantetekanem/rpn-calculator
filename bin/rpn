@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
-require_relative "../cli"
+require_relative "../lib/cli"
 Cli.new
