@@ -16,14 +16,15 @@ class RpnCalculator
     stack = []
 
     tokens.each do |token|
-      if token.is_a? OperatorToken
+      if token.is_a? OperandToken
+        stack << token.value
+      else
+        # Is an operator (duck typing here)
         operand_2 = stack.pop
         operand_1 = stack.pop
 
         result = token.run(operand_1, operand_2)
         stack << result
-      elsif token.is_a? OperandToken
-        stack << token.value
       end
     end
 
