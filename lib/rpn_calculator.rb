@@ -9,7 +9,9 @@ class RpnCalculator
   end
 
   def self.execute(expression)
-    new(expression).execute
+    e = new(expression)
+    e.execute
+    e.accumulated
   end
 
   def execute

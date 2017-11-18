@@ -4,6 +4,10 @@ RSpec.describe RpnCalculator do
   subject(:rpn) { described_class.new('') }
   before { subject.add('5 2 +') }
 
+  it "singleton method" do
+    expect(described_class.execute('5 5 +')).to eq 10
+  end
+
   it "stack should contains 3 tokens" do
     expect(subject.stack.size).to eq 3
   end
