@@ -2,7 +2,7 @@ require_relative "lib/rpn_calculator"
 
 class Cli
   attr_reader :rpn
-  OPERATORS = ["+", "-", "/", "*"].freeze
+  OPERATORS = ["+", "-", "/", "*", "%"].freeze
 
   def initialize
     @rpn = RpnCalculator.new("")
