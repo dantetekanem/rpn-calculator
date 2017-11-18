@@ -73,5 +73,12 @@ RSpec.describe RpnCalculator do
 
       expect(subject.accumulated).to eq 3
     end
+
+    it "do mod" do
+      subject.add('3 2 %')
+      subject.execute
+
+      expect(subject.accumulated).to eq 1
+    end
   end
 end

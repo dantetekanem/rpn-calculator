@@ -4,6 +4,7 @@ require_relative "tokens/addition_operator_token"
 require_relative "tokens/substraction_operator_token"
 require_relative "tokens/multiplication_operator_token"
 require_relative "tokens/division_operator_token"
+require_relative "tokens/mod_operator_token"
 require_relative "tokens/ignore_token"
 
 class LexicalAnalyzer
@@ -13,6 +14,7 @@ class LexicalAnalyzer
     [/^\-/, SubstractionOperatorToken],
     [/^\*/, MultiplicationOperatorToken],
     [/^\//, DivisionOperatorToken],
+    [/^\%/, ModOperatorToken],
     [/\s+/, IgnoreToken]
   ].freeze
 
