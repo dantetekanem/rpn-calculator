@@ -23,10 +23,10 @@ class RpnCalculator
         operation_stack << token
       else
         # Is an operator (duck typing here)
-        operand_2 = operation_stack.pop.value
-        operand_1 = operation_stack.pop.value
+        operand_2 = operation_stack.pop
+        operand_1 = operation_stack.pop
 
-        result = token.run(operand_1, operand_2)
+        result = token.run(operand_1.value, operand_2.value)
         operation_stack << result
       end
     end
