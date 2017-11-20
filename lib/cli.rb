@@ -5,7 +5,7 @@ class Cli
   OPERATORS = ["+", "-", "/", "*", "%"].freeze
 
   def initialize
-    @rpn = RpnCalculator.new("")
+    @rpn = RpnCalculator.new
 
     welcome_message
     play_loop

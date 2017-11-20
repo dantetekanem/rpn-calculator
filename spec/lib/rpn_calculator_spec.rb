@@ -1,11 +1,12 @@
 require_relative "../../lib/rpn_calculator"
 
 RSpec.describe RpnCalculator do
-  subject(:rpn) { described_class.new('') }
+  subject(:rpn) { described_class.new }
   before { subject.add('5 2 +') }
 
   it "singleton method" do
     expect(described_class.execute('5 5 +')).to eq 10
+    expect(described_class.execute('15 7 1 1 + - / 3 * 2 1 1 + + -')).to eq 5
   end
 
   it "stack should contains 3 tokens" do

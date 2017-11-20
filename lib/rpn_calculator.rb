@@ -3,15 +3,16 @@ require_relative "lexical_analyzer"
 class RpnCalculator
   attr_reader :tokens, :accumulated
 
-  def initialize(expression)
-    @tokens = LexicalAnalyzer.tokenize(expression)
+  def initialize
+    @tokens = []
     @accumulated = 0.0
   end
 
   def self.execute(expression)
-    e = new(expression)
-    e.execute
-    e.accumulated
+    new.tap do |e|
+      e.add(expression)
+      e.execute
+    end.accumulated
   end
 
   def execute
