@@ -66,10 +66,10 @@ RSpec.describe RpnCalculator do
     end
 
     it "do multiplication" do
-      subject.add('2 2 *')
+      subject.add('2 3 *')
       subject.execute
 
-      expect(subject.accumulated).to eq 4
+      expect(subject.accumulated).to eq 6
     end
 
     it "do division" do

@@ -16,23 +16,23 @@ class RpnCalculator
   end
 
   def execute
-    stack = []
+    operation_stack = []
 
     tokens.each do |token|
       if token.is_a? OperandToken
-        stack << token.value
+        operation_stack << token
       else
         # Is an operator (duck typing here)
-        operand_2 = stack.pop
-        operand_1 = stack.pop
+        operand_2 = operation_stack.pop.value
+        operand_1 = operation_stack.pop.value
 
         result = token.run(operand_1, operand_2)
-        stack << result
+        operation_stack << result
       end
     end
 
-    @accumulated = stack[0]
-    @tokens = LexicalAnalyzer.tokenize(stack.join(' '))
+    @accumulated = operation_stack[0].value
+    @tokens = operation_stack
   end
 
   def add(expression)
